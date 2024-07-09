@@ -1,0 +1,297 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header,
+hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+/* Display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+:root {
+	--background: hsl(0, 0%, 100%);
+	--foreground: hsl(20, 14.3%, 4.1%);
+	--card: hsl(0, 0%, 100%);
+	--card-foreground: hsl(20, 14.3%, 4.1%);
+	--popover: hsl(0, 0%, 100%);
+	--popover-foreground: hsl(20, 14.3%, 4.1%);
+	--primary: hsl(47.9, 95.8%, 53.1%);
+	--primary-transparent: hsl(47.9, 95.8%, 53.1%, 0.5);
+	--primary-foreground: hsl(26, 83.3%, 14.1%);
+	--secondary: hsl(60, 4.8%, 95.9%);
+	--secondary-foreground: hsl(24, 9.8%, 10%);
+	--muted: hsl(60, 4.8%, 95.9%);
+	--muted-foreground: hsl(25, 5.3%, 44.7%);
+	--accent: hsl(60, 4.8%, 95.9%);
+	--accent-foreground: hsl(24, 9.8%, 10%);
+	--destructive: hsl(0, 72.22%, 50.59%);
+	--destructive-foreground: hsl(60, 9.1%, 97.8%);
+	--border: hsl(20, 5.9%, 90%);
+	--input: hsl(20, 5.9%, 90%);
+	--ring: hsl(20, 14.3%, 4.1%);
+	--radius: 0.8rem;
+	--topaz-font-family: system-ui;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: hsl(20, 14.3%, 4.1%);
+		--foreground: hsl(60, 9.1%, 97.8%);
+		--card: hsl(20, 14.3%, 4.1%);
+		--card-foreground: hsl(60, 9.1%, 97.8%);
+		--popover: hsl(20, 14.3%, 4.1%);
+		--popover-foreground: hsl(60, 9.1%, 97.8%);
+		--primary: hsl(47.9, 95.8%, 53.1%);
+		--primary-foreground: hsl(26, 83.3%, 14.1%);
+		--secondary: hsl(12, 6.5%, 15.1%);
+		--secondary-foreground: hsl(60, 9.1%, 97.8%);
+		--muted: hsl(12, 6.5%, 15.1%);
+		--muted-foreground: hsl(24, 5.4%, 63.9%);
+		--accent: hsl(12, 6.5%, 15.1%);
+		--accent-foreground: hsl(60, 9.1%, 97.8%);
+		--destructive: hsl(0, 62.8%, 30.6%);
+		--destructive-foreground: hsl(60, 9.1%, 97.8%);
+		--border: hsl(12, 6.5%, 15.1%);
+		--input: hsl(12, 6.5%, 15.1%);
+		--ring: hsl(35.5, 91.7%, 32.9%);
+	}
+}
+
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+body {
+	line-height: 1.5;
+	font-family: var(--topaz-font-family), sans-serif;
+	font-size: 16px;
+	min-height: 100vh;
+	-webkit-font-smoothing: antialiased;
+	background: var(--background);
+	color: var(--foreground);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#root, #__next {
+	isolation: isolate;
+}
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+input, button, textarea, select {
+	font: inherit;
+}
+h1, h2, h3, h4, h5, h6, a, p, label {
+	margin: 0px 10px;
+}
+article :is(h1, h2, h3, h4, h5, h6, a, p, label) {
+	margin: 0;
+}
+/* Utilities */
+.outline {
+	background: transparent;
+	border: 1px solid hsl(20, 5.9%, 90%);
+	color: inherit;
+}
+
+.fill {
+	border-color: transparent;
+	background: var(--accent);
+}
+
+.primary {
+	background: var(--primary);
+}
+
+.drop-shadow {
+	border-color: transparent;
+	filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
+
+/* Text selection */
+::-moz-selection {
+  background: var(--primary-transparent);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--primary-transparent);
+  color: var(--foreground);
+}
+
+/* Base typography */
+
+h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+	font-weight: bold;
+}
+
+p {
+	overflow-wrap: break-word;
+}
+
+h1 {
+	font-size: 32px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+small {
+	font-size: 14px;
+}
+
+/* Links */
+a {
+	color: var(--primary);
+	font-weight: 500;
+}
+
+/* <mark> element */
+mark {
+	background: var(--primary-transparent);
+	color: inherit;
+	border-radius: 3px;
+	padding: 1px 2px;
+}
+
+/* Buttons */
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	transition-property: color;
+	border-color: transparent;
+	height: 34px;
+	border-radius: 0.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+	background: var(--primary);
+	font-size: 15px;
+	font-weight: 600;
+}
+
+button:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible,
+input[type="button"]:focus-visible {
+	border: 1px solid black;
+}
+
+button:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled,
+input[type="button"]:disabled {
+	pointer-events: none;
+	opacity: 0.8;
+}
+
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+	transform: scale(0.95);
+}
+
+/* Article element */
+article {
+	border: 1px solid var(--border);
+	background: var(--card);
+	margin: 10px;
+	padding: 12px;
+	border-radius: var(--radius);
+}
+
+/* Horizontal rules (dividers) */
+hr {
+	border: 0.5px solid var(--border);
+}
+
+/* Details - summary tag */
+details {
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.03em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.4em;
+}
+
+/* Code */
+code {
+	font-family: monospace;
+	background: var(--accent);
+	padding: 2px 4px;
+	border-radius: 5px;
+	font-size: inherit;
+}
