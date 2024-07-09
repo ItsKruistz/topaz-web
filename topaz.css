@@ -122,6 +122,7 @@ h1, h2, h3, h4, h5, h6, a, p, label {
 article :is(h1, h2, h3, h4, h5, h6, a, p, label) {
 	margin: 0;
 }
+
 /* Utilities */
 .outline {
 	background: transparent;
@@ -141,6 +142,26 @@ article :is(h1, h2, h3, h4, h5, h6, a, p, label) {
 .drop-shadow {
 	border-color: transparent;
 	filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
+
+.small {
+  height: 30px;
+  border-radius: 9999px; /* Fully rounded */
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.large {
+  height: 48px;
+  border-radius: 9999px; /* Fully rounded */
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 15px;
+}
+
+.icon {
+  height: 40px;
+  width: 40px;
 }
 
 /* Text selection */
@@ -218,6 +239,9 @@ input[type="button"] {
 	white-space: nowrap;
 	transition-property: color;
 	border-color: transparent;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
 	height: 34px;
 	border-radius: 0.5rem;
 	padding-left: 1rem;
