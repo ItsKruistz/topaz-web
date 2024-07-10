@@ -28,6 +28,32 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+@media (min-width: 576px) {
+  :root {
+    font-size: 106.25%;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    font-size: 112.5%;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    font-size: 118.75%;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    font-size: 125%;
+  }
+}
+@media (min-width: 1536px) {
+  :root {
+    font-size: 131.25%;
+  }
+}
+
 :root {
 	--background: hsl(0, 0%, 100%);
 	--foreground: hsl(20, 14.3%, 4.1%);
@@ -49,8 +75,12 @@ footer, header, hgroup, menu, nav, section {
 	--border: hsl(20, 5.9%, 90%);
 	--input: hsl(20, 5.9%, 90%);
 	--ring: hsl(20, 14.3%, 4.1%);
-	--radius: 0.8rem;
-	--topaz-font-family: system-ui;
+	--radius: 0.7rem;
+	--topaz-font-family-sans-serif: system-ui;
+	--topaz-font-family-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace, var(--topaz-font-family-emoji);
+	--topaz-font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--topaz-icon-checkbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+	--topaz-icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E");
 }
 
 @media (prefers-color-scheme: dark) {
@@ -84,12 +114,14 @@ html {
 }
 body {
 	line-height: 1.5;
-	font-family: var(--topaz-font-family), sans-serif;
+	font-family: var(--topaz-font-family), "Segoe UI", sans-serif;
 	font-size: 16px;
 	min-height: 100vh;
+	width: 100%;
 	-webkit-font-smoothing: antialiased;
 	background: var(--background);
 	color: var(--foreground);
+	padding: 12px;
 }
 ol, ul {
 	list-style: none;
@@ -113,14 +145,11 @@ img, picture, video, canvas, svg {
 	display: block;
 	max-width: 100%;
 }
+img, picture, video {
+  border-radius: 8px;
+}
 input, button, textarea, select {
 	font: inherit;
-}
-h1, h2, h3, h4, h5, h6, a, p, label {
-	margin: 0px 10px;
-}
-article :is(h1, h2, h3, h4, h5, h6, a, p, label) {
-	margin: 0;
 }
 
 /* Utilities */
@@ -250,7 +279,7 @@ input[type="button"] {
 	padding-bottom: 0.375rem;
 	background: var(--primary);
 	font-size: 15px;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 button:focus-visible,
@@ -279,7 +308,7 @@ input[type="button"]:active {
 article {
 	border: 1px solid var(--border);
 	background: var(--card);
-	margin: 10px;
+	margin: 12px 0px;
 	padding: 12px;
 	border-radius: var(--radius);
 }
@@ -292,7 +321,7 @@ hr {
 /* Details - summary tag */
 details {
   border: 1px solid var(--border);
-  border-radius: 0.7rem;
+  border-radius: 0.6rem;
   padding: 0.5em 0.5em 0;
 }
 
@@ -313,9 +342,59 @@ details[open] summary {
 
 /* Code */
 code {
-	font-family: monospace;
+	font-family: var(--topaz-font-family-monospace);
 	background: var(--accent);
 	padding: 2px 4px;
 	border-radius: 5px;
 	font-size: inherit;
+}
+
+/* Keyboard */
+kbd {
+  background-color: var(--secondary);
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  color: inherit;
+  display: inline-block;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  font-size: inherit;
+  padding: 8px 8px;
+}
+
+/* Checkboxes and radios */
+[type=checkbox],
+[type=radio] {
+  accent-color: var(--primary)
+}
+
+[type=date],
+[type=month],
+[type=week],
+[type=text],
+[type=search],
+[type=number],
+[type=email] {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  appearance: none;
+  margin: 6px 0px;
+}
+
+[type=color] {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  appearance: none;
+  margin: 6px 0px;
+  padding: 1px;
 }
